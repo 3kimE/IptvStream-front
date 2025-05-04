@@ -1,26 +1,31 @@
 
 import React from "react";
 import Navbar from "@/components/Navbar";
-import HeroCarousel from "@/components/HeroCarousel";
-import ChannelsSlider from "@/components/ChannelsSlider";
-import Benefits from "@/components/Benefits";
-import Devices from "@/components/Devices";
+import HeroSection from "@/components/HeroSection";
+import ChannelsShowcase from "@/components/ChannelsShowcase";
+import FeaturesGrid from "@/components/FeaturesGrid";
+import DevicesSection from "@/components/DevicesSection";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Testimonials from "@/components/Testimonials";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-iptv-background">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white">
       <Navbar />
-      <HeroCarousel />
-      <ChannelsSlider />
-      <Benefits />
-      <Devices />
-      <Pricing />
-      <FAQ />
-      <Contact />
+      <HeroSection />
+      <div className="relative">
+        <div className="absolute inset-0 bg-[url('/images/gradient-bg.svg')] bg-cover bg-no-repeat opacity-5"></div>
+        <ChannelsShowcase />
+        <FeaturesGrid />
+        <DevicesSection />
+        <Testimonials />
+        <Pricing />
+        <FAQ />
+        <Contact />
+      </div>
       <Footer />
     </div>
   );

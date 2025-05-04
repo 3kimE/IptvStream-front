@@ -39,7 +39,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border scroll-smooth;
   }
   
   html {
@@ -47,37 +47,28 @@
   }
   
   body {
-    @apply bg-iptv-background text-iptv-text antialiased;
+    @apply bg-black text-white antialiased overflow-x-hidden;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
-  /* Custom gradient overlay for hero images */
-  .hero-overlay {
-    background: linear-gradient(to bottom, rgba(18,18,18,0) 0%, rgba(18,18,18,0.8) 100%);
+  /* Glass effect styles */
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
   }
   
-  /* Custom glassmorphism effect for cards */
-  .glass-card {
-    @apply bg-iptv-card/90 backdrop-blur-sm border border-white/10 shadow-lg;
+  /* Animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
   }
   
-  /* Custom scrolling animation for carousels */
-  .infinite-scroll {
-    @apply animate-carousel-slide;
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
   }
   
-  .infinite-scroll:hover {
-    animation-play-state: paused;
-  }
-  
-  /* Double track for seamless infinite scrolling */
-  .double-track {
-    width: 200%;
-    display: flex;
-  }
-  
-  .double-track > div {
-    width: 50%;
-    display: flex;
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-iptv-primary via-purple-500 to-blue-500 bg-clip-text text-transparent;
   }
 }

@@ -24,23 +24,24 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 
-      ${scrolled ? 'bg-iptv-background/95 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}
+      ${scrolled ? 'backdrop-blur-lg bg-black/80 shadow-lg shadow-black/20' : 'bg-transparent'}`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
           <h1 className="text-2xl font-bold text-white">
-            <span className="text-iptv-primary">IPTV</span>Stream
+            <span className="bg-gradient-to-r from-iptv-primary to-purple-500 bg-clip-text text-transparent">IPTV</span>
+            <span>Stream</span>
           </h1>
         </div>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#home" className="text-white hover:text-iptv-primary transition-colors">Home</a>
-          <a href="#features" className="text-white hover:text-iptv-primary transition-colors">Features</a>
-          <a href="#pricing" className="text-white hover:text-iptv-primary transition-colors">Pricing</a>
-          <a href="#faq" className="text-white hover:text-iptv-primary transition-colors">FAQ</a>
-          <a href="#contact" className="text-white hover:text-iptv-primary transition-colors">Contact</a>
-          <Button className="bg-iptv-primary hover:bg-iptv-primary/90 text-white">Get Started</Button>
+          <a href="#home" className="text-white hover:text-iptv-primary transition-colors font-medium">Home</a>
+          <a href="#features" className="text-white hover:text-iptv-primary transition-colors font-medium">Features</a>
+          <a href="#pricing" className="text-white hover:text-iptv-primary transition-colors font-medium">Pricing</a>
+          <a href="#faq" className="text-white hover:text-iptv-primary transition-colors font-medium">FAQ</a>
+          <a href="#contact" className="text-white hover:text-iptv-primary transition-colors font-medium">Contact</a>
+          <Button className="bg-iptv-primary hover:bg-iptv-primary/90 text-white rounded-full px-6">Get Started</Button>
         </nav>
         
         {/* Mobile Menu Button */}
@@ -54,45 +55,45 @@ const Navbar = () => {
       
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-iptv-background border-t border-gray-800">
-          <div className="container mx-auto px-4 py-2">
-            <nav className="flex flex-col space-y-4 py-4">
+        <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-gray-800">
+          <div className="container mx-auto px-4 py-6">
+            <nav className="flex flex-col space-y-6">
               <a 
                 href="#home" 
-                className="text-white hover:text-iptv-primary transition-colors"
+                className="text-white hover:text-iptv-primary transition-colors text-lg font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
               </a>
               <a 
                 href="#features" 
-                className="text-white hover:text-iptv-primary transition-colors"
+                className="text-white hover:text-iptv-primary transition-colors text-lg font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Features
               </a>
               <a 
                 href="#pricing" 
-                className="text-white hover:text-iptv-primary transition-colors"
+                className="text-white hover:text-iptv-primary transition-colors text-lg font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Pricing
               </a>
               <a 
                 href="#faq" 
-                className="text-white hover:text-iptv-primary transition-colors"
+                className="text-white hover:text-iptv-primary transition-colors text-lg font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 FAQ
               </a>
               <a 
                 href="#contact" 
-                className="text-white hover:text-iptv-primary transition-colors"
+                className="text-white hover:text-iptv-primary transition-colors text-lg font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
               </a>
-              <Button className="bg-iptv-primary hover:bg-iptv-primary/90 text-white w-full">
+              <Button className="bg-iptv-primary hover:bg-iptv-primary/90 text-white w-full rounded-full">
                 Get Started
               </Button>
             </nav>

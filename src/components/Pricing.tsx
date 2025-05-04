@@ -65,14 +65,14 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-20 bg-iptv-background">
+    <section id="pricing" className="py-24 relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white">
-            Simple & Flexible <span className="text-iptv-primary">Pricing</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+            Simple & Transparent <span className="text-iptv-primary">Pricing</span>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Choose the perfect subscription plan for your entertainment needs
+            Choose the perfect plan for your entertainment needs
           </p>
         </div>
         
@@ -80,52 +80,58 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`relative glass-card rounded-xl p-6 flex flex-col 
-                ${plan.popular ? 'border-2 border-iptv-primary' : 'border border-gray-700'}`}
+              className={`relative overflow-hidden rounded-2xl ${
+                plan.popular 
+                  ? 'border-2 border-iptv-primary' 
+                  : 'border border-gray-700/50'
+              }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-0 right-0 mx-auto w-fit px-4 py-1 bg-iptv-primary text-white text-sm font-bold rounded-full">
-                  Most Popular
+                <div className="absolute -right-12 top-6 bg-iptv-primary text-white py-1 px-12 transform rotate-45">
+                  Popular
                 </div>
               )}
               
-              <div className="mb-6">
+              <div className="bg-gradient-to-b from-gray-900 to-gray-800 p-8">
                 <h3 className="text-xl font-semibold mb-2 text-white">{plan.name}</h3>
-                <div className="flex items-end gap-1 mb-2">
+                <div className="flex items-end gap-1 mb-1">
                   <span className="text-4xl font-bold text-white">{plan.price}</span>
-                  {plan.savings && (
-                    <span className="text-sm text-iptv-primary font-medium mb-1">
-                      {plan.savings}
-                    </span>
-                  )}
                 </div>
-                <p className="text-gray-400 text-sm">per subscription</p>
+                {plan.savings && (
+                  <span className="inline-block mt-1 mb-4 text-sm font-medium py-1 px-2 rounded-full bg-iptv-primary/20 text-iptv-primary">
+                    {plan.savings}
+                  </span>
+                )}
+                
+                <div className="my-6 border-t border-gray-700"></div>
+                
+                <ul className="mb-8 space-y-4">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-gray-300">
+                      <div className="mr-3 p-1 rounded-full bg-iptv-primary/20">
+                        <Check className="h-4 w-4 text-iptv-primary" />
+                      </div>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  className={`w-full ${plan.popular 
+                    ? 'bg-iptv-primary hover:bg-iptv-primary/90' 
+                    : 'bg-gray-800 hover:bg-gray-700 border border-iptv-primary/60'
+                  }`}
+                >
+                  Get Started
+                </Button>
               </div>
-              
-              <ul className="mb-8 space-y-3 flex-1">
-                {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-gray-300">
-                    <Check className="mr-2 h-5 w-5 text-iptv-primary" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <Button 
-                className={`w-full ${plan.popular 
-                  ? 'bg-iptv-primary hover:bg-iptv-primary/90' 
-                  : 'bg-iptv-card hover:bg-iptv-card/80 border border-iptv-primary/60'
-                }`}
-              >
-                Buy Now
-              </Button>
             </div>
           ))}
         </div>
         
         <div className="text-center mt-12 text-gray-400 max-w-xl mx-auto">
           <p>
-            Need a custom plan? <a href="#contact" className="text-iptv-primary underline">Contact us</a> for special packages and multi-user discounts.
+            Need a custom plan? <a href="#contact" className="text-iptv-primary hover:underline">Contact us</a> for special packages and multi-user discounts.
           </p>
         </div>
       </div>
