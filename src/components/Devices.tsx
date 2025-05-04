@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { Android, Apple, Smartphone, Tv } from "lucide-react";
+import { Smartphone, Apple, Tv, Tablet } from "lucide-react";
 
 const supportedDevices = [
   {
-    icon: <Android className="h-16 w-16" />,
+    icon: <Smartphone className="h-16 w-16" />,
     name: "Android",
     description: "Smart TVs, Boxes, Phones & Tablets"
   },
@@ -19,7 +19,7 @@ const supportedDevices = [
     description: "Samsung, LG, Sony, Fire TV & more"
   },
   {
-    icon: <Smartphone className="h-16 w-16" />,
+    icon: <Tablet className="h-16 w-16" />,
     name: "Other Devices",
     description: "MAG, Firestick, Windows, Linux & VLC"
   },
