@@ -18,6 +18,7 @@ const Index = () => {
       <HeroSection />
       <div className="relative">
         <div className="absolute inset-0 bg-[url('/images/gradient-bg.svg')] bg-cover bg-no-repeat opacity-5"></div>
+        <div className="absolute inset-0 bg-[url('/images/noise.svg')] bg-repeat opacity-[0.02]"></div>
         <ChannelsShowcase />
         <FeaturesGrid />
         <DevicesSection />

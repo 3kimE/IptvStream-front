@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Tv, Shield, Zap, Globe, Tv2, Play, MonitorPlay } from "lucide-react";
+import { Tv, Shield, Zap, Globe, MonitorPlay, Play, Clock, FileText, Smartphone } from "lucide-react";
 
 const features = [
   {
@@ -33,6 +33,21 @@ const features = [
     title: "Catch-Up TV",
     description: "Missed your favorite show? Watch it later with our 7-day catch-up TV feature."
   },
+  {
+    icon: <Clock className="h-10 w-10 text-iptv-primary" />,
+    title: "24/7 Support",
+    description: "Our dedicated support team is available round the clock to assist with any issues."
+  },
+  {
+    icon: <FileText className="h-10 w-10 text-purple-500" />,
+    title: "Electronic Program Guide",
+    description: "Navigate easily through channels with our comprehensive and up-to-date program guide."
+  },
+  {
+    icon: <Smartphone className="h-10 w-10 text-blue-500" />,
+    title: "Multi-device Support",
+    description: "Watch simultaneously on multiple devices with our flexible subscription options."
+  },
 ];
 
 const FeaturesGrid = () => {
@@ -48,13 +63,13 @@ const FeaturesGrid = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="p-8 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 hover:border-iptv-primary/50 transition-all group"
+              className="p-8 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50 hover:border-iptv-primary/50 transition-all group hover:shadow-xl hover:shadow-iptv-primary/10"
             >
-              <div className="mb-5 p-3 bg-gray-800/80 rounded-xl inline-block group-hover:bg-gray-800 transition-all">
+              <div className="mb-5 p-3 bg-gray-800/80 rounded-xl inline-block group-hover:bg-gray-800 transition-all group-hover:transform group-hover:scale-110 group-hover:text-iptv-primary">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-iptv-primary transition-colors">

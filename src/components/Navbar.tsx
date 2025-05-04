@@ -38,6 +38,7 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#home" className="text-white hover:text-iptv-primary transition-colors font-medium">Home</a>
           <a href="#features" className="text-white hover:text-iptv-primary transition-colors font-medium">Features</a>
+          <a href="#devices" className="text-white hover:text-iptv-primary transition-colors font-medium">Devices</a>
           <a href="#pricing" className="text-white hover:text-iptv-primary transition-colors font-medium">Pricing</a>
           <a href="#faq" className="text-white hover:text-iptv-primary transition-colors font-medium">FAQ</a>
           <a href="#contact" className="text-white hover:text-iptv-primary transition-colors font-medium">Contact</a>
@@ -71,6 +72,13 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Features
+              </a>
+              <a 
+                href="#devices" 
+                className="text-white hover:text-iptv-primary transition-colors text-lg font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Devices
               </a>
               <a 
                 href="#pricing" 

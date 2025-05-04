@@ -46,6 +46,20 @@ const channelCategories = [
       { name: "France24", logo: "https://via.placeholder.com/100x60?text=France24" },
     ],
   },
+  {
+    id: "entertainment",
+    name: "Entertainment",
+    channels: [
+      { name: "MTV", logo: "https://via.placeholder.com/100x60?text=MTV" },
+      { name: "Comedy Central", logo: "https://via.placeholder.com/100x60?text=ComedyCentral" },
+      { name: "Disney+", logo: "https://via.placeholder.com/100x60?text=Disney+" },
+      { name: "Hulu", logo: "https://via.placeholder.com/100x60?text=Hulu" },
+      { name: "FX", logo: "https://via.placeholder.com/100x60?text=FX" },
+      { name: "Bravo", logo: "https://via.placeholder.com/100x60?text=Bravo" },
+      { name: "History", logo: "https://via.placeholder.com/100x60?text=History" },
+      { name: "Discovery", logo: "https://via.placeholder.com/100x60?text=Discovery" },
+    ],
+  },
 ];
 
 const ChannelsShowcase = () => {
@@ -83,7 +97,7 @@ const ChannelsShowcase = () => {
               <TabsContent 
                 key={category.id} 
                 value={category.id} 
-                className="focus-visible:outline-none focus-visible:ring-0"
+                className="focus-visible:outline-none focus-visible:ring-0 animate-fade-in"
               >
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                   {category.channels.map((channel, idx) => (
