@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Tv } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -27,7 +27,8 @@ const Navbar = () => {
       ${scrolled ? 'backdrop-blur-lg bg-black/80 shadow-lg shadow-black/20' : 'bg-transparent'}`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center">
+        <div className="flex items-center space-x-2">
+          <Tv size={28} className="text-iptv-primary animate-pulse-glow" />
           <h1 className="text-2xl font-bold text-white">
             <span className="bg-gradient-to-r from-iptv-primary to-purple-500 bg-clip-text text-transparent">IPTV</span>
             <span>Stream</span>

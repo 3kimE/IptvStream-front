@@ -81,6 +81,19 @@
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
+  
+  /* Testimonial form styles */
+  textarea:focus, input:focus {
+    @apply outline-none ring-2 ring-iptv-primary/50;
+  }
+  
+  .testimonial-input {
+    @apply transition-all duration-300;
+  }
+  
+  .testimonial-input:focus {
+    @apply transform -translate-y-1;
+  }
 }
 
 /* Custom scrollbar for WebKit browsers */

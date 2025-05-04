@@ -1,6 +1,7 @@
 
-import React from 'react';
-import { Star, ChevronRight, ChevronLeft } from "lucide-react";
+import React, { useState } from 'react';
+import { Star, ChevronRight, ChevronLeft, MessageSquare, User } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { 
   Carousel,
   CarouselContent,
@@ -8,6 +9,8 @@ import {
   CarouselPrevious,
   CarouselNext
 } from "@/components/ui/carousel";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 
 const testimonials = [
   {
@@ -55,8 +58,33 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const { toast } = useToast();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [rating, setRating] = useState(5);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Here you would typically send this data to your backend
+    console.log({ name, email, message, rating });
+    
+    // Show success toast
+    toast({
+      title: "Testimonial submitted!",
+      description: "Thank you for sharing your experience with us.",
+    });
+    
+    // Reset form
+    setName('');
+    setEmail('');
+    setMessage('');
+    setRating(5);
+  };
+
   return (
-    <section className="py-24 relative z-10">
+    <section id="testimonials" className="py-24 relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
@@ -67,7 +95,7 @@ const Testimonials = () => {
           </p>
         </div>
         
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto mb-20">
           <Carousel 
             opts={{ 
               align: "start",
@@ -110,6 +138,84 @@ const Testimonials = () => {
               <ChevronRight className="h-6 w-6" />
             </CarouselNext>
           </Carousel>
+        </div>
+
+        {/* Customer Testimonial Submission Form */}
+        <div className="max-w-3xl mx-auto bg-gray-800/50 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-white/10">
+          <div className="flex items-center mb-6">
+            <MessageSquare className="text-iptv-primary mr-3" />
+            <h3 className="text-2xl font-bold">Share Your Experience</h3>
+          </div>
+          
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <Input 
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="pl-10 bg-gray-900 border-gray-700 text-white"
+                    placeholder="John Smith"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">Your Email</label>
+                <Input 
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-gray-900 border-gray-700 text-white"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium mb-2">Your Testimonial</label>
+              <textarea
+                id="message"
+                rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="w-full rounded-md bg-gray-900 border-gray-700 text-white p-3 focus:ring-iptv-primary focus:border-iptv-primary"
+                placeholder="Share your experience with our IPTV service..."
+                required
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-3">Your Rating</label>
+              <div className="flex space-x-2">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button 
+                    key={star} 
+                    type="button"
+                    onClick={() => setRating(star)}
+                    className="focus:outline-none"
+                  >
+                    <Star 
+                      className={`h-8 w-8 ${rating >= star ? 'text-yellow-400 fill-yellow-400' : 'text-gray-500'}`} 
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+            
+            <Button 
+              type="submit" 
+              className="w-full md:w-auto bg-iptv-primary hover:bg-iptv-primary/90 text-white"
+            >
+              Submit Your Testimonial
+            </Button>
+          </form>
         </div>
       </div>
     </section>
